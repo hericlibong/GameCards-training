@@ -1,4 +1,4 @@
-import random
+
 
 class Card:
     """Représente une carte avec un rang et une couleur"""
@@ -25,35 +25,3 @@ class Card:
         if self.rank_score == other.rank_score:
             return self.suit_score < other.suit_score
         return self.rank_score < other.rank_score
-
-class Deck:
-    """Représente un jeu de 52 cartes"""
-    def __init__(self):
-        self.cards = [Card(rank, suit) for suit in Card.suits for rank in Card.ranks] 
-        self.shuffle()
-
-    def shuffle(self):
-        """Mélange les cartes dans le jeu"""
-        random.shuffle(self.cards)
-
-    
-    def draw_card(self):
-        """Pioche la carte du dessus du jeu mélangé."""
-        try:
-            return self.cards.pop()
-        except IndexError:
-            return None
-    
-
-
-class Player:
-    """Représente un joueur"""
-    def __init__(self, name):
-        self.name = name
-        self.card = None
-
-class Game:
-    """Gère la logique du jeu"""
-    def __init__(self, player_names):
-        self.deck = Deck()
-        self.players = [Player(name) for name in player_names]
