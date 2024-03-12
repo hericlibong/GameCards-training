@@ -67,6 +67,13 @@ class Deck:
         except IndexError:
             return None
 
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.card = None
+
+        
+
 deck = Deck()
 print(deck.cards)
 
